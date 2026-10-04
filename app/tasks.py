@@ -2,8 +2,8 @@ from crewai import Task, Crew, Process
 from app.agents import CodeReviewAgents
 
 def run_code_review_pipeline(code_diff: str) -> str:
+    print("🤖 AI Review Pipeline started..")
     agents = CodeReviewAgents()
-    
     security = agents.security_agent()
     performance = agents.performance_agent()
     clean_code = agents.clean_code_agent()
@@ -34,4 +34,5 @@ def run_code_review_pipeline(code_diff: str) -> str:
     )
 
     result = crew.kickoff()
+    print("🤖 AI Review Pipeline finished successfully.")
     return str(result)

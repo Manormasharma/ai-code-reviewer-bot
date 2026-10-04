@@ -23,4 +23,8 @@ def post_github_comment(repo_full_name: str, pr_number: int, comment_body: str):
     }
     payload = {"body": comment_body}
     response = requests.post(url, headers=headers, json=payload)
+    
+    print(f"GitHub API Response Status: {response.status_code}")
+    print(f"GitHub API Response Body: {response.text}")
+    
     return response.json()

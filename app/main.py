@@ -19,10 +19,11 @@ def process_pr_background(repo_full_name: str, pr_number: int, diff_url: str):
     # 3. Post comment back to GitHub PR
     post_github_comment(repo_full_name, pr_number, formatted_comment)
 
+
 @app.post("/webhook/github")
 async def github_webhook(request: Request, background_tasks: BackgroundTasks):
-    payload = await request.json()
     
+    payload = await request.json()
     action = payload.get("action")
     # Trigger on pull request opened or new commits pushed (synchronize)
     if action in ["opened", "synchronize"]:
