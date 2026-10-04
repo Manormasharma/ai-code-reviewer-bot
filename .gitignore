@@ -1,0 +1,13 @@
+# Environment secrets and tokens
+.env
+
+# Python virtual environment & cache directories
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+
+# Local logs and database files
+logs/
+*.sqlite3
